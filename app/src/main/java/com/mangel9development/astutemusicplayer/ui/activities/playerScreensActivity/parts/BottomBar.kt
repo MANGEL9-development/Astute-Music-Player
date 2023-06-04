@@ -2,8 +2,8 @@ package com.mangel9development.astutemusicplayer.ui.activities.playerScreensActi
 
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.AccountCircle
-import androidx.compose.material.icons.filled.Add
 import androidx.compose.material.icons.filled.List
+import androidx.compose.material.icons.filled.Search
 import androidx.compose.material3.Icon
 import androidx.compose.material3.NavigationBar
 import androidx.compose.material3.NavigationBarItem
@@ -15,27 +15,30 @@ import androidx.navigation.NavHostController
 import androidx.navigation.compose.currentBackStackEntryAsState
 import com.mangel9development.astutemusicplayer.R
 import com.mangel9development.astutemusicplayer.ui.activities.playerScreensActivity.navigation.Routes
+import com.mangel9development.astutemusicplayer.ui.theme.navigationBackgroundColor
 
 @Composable
 fun BottomBar(
     nav:NavHostController
 ) {
     // TODO: change bottom bar background color
-    NavigationBar{
+    NavigationBar(
+        containerColor = navigationBackgroundColor
+    ){
         val backStack by nav.currentBackStackEntryAsState()
         val destination=backStack?.destination
         NavigationBarItem(
-            selected = nav.currentBackStackEntry?.destination?.route==Routes.Search.route,
+            selected = nav.currentBackStackEntry?.destination?.route==Routes.MyLibrary.route,
             onClick = {
-                nav.navigate(Routes.Search.route){
+                nav.navigate(Routes.MyLibrary.route){
                     launchSingleTop=true
-                    popUpTo(Routes.Search.route){ inclusive=false }
+                    popUpTo(Routes.MyLibrary.route){ inclusive=false }
                 }
             },
             icon = {
                 Icon(
                     Icons.Default.List,
-                    "Tap here to view all the items in the inventory"
+                    contentDescription=stringResource(R.string.libraryNavButtonDescription)
                 )
             },
             label = {
@@ -43,13 +46,15 @@ fun BottomBar(
             }
         )
         NavigationBarItem(
-            selected = nav.currentBackStackEntry?.destination?.route==Routes.MyLibrary.route,
+            selected = nav.currentBackStackEntry?.destination?.route==Routes.Search.route,
             onClick = {
-                nav.navigate(Routes.MyLibrary.route)
+                nav.navigate(Routes.Search.route)
             },
             icon = {
-                Icon(Icons.Default.Add, // TODO: Change this icon
-                    "Tap here to add an item to the inventory")
+                Icon(
+                    Icons.Filled.Search,
+                    contentDescription=stringResource(R.string.searchNavButtonDescription)
+                )
             },
             label = {
                 Text(stringResource(R.string.search))
@@ -61,7 +66,10 @@ fun BottomBar(
                 nav.navigate(Routes.MyPlaylists.route)
             },
             icon = {
-                Icon(Icons.Default.AccountCircle, "Tap here to edit account info")
+                Icon(
+                    Icons.Default.AccountCircle,
+                    contentDescription=stringResource(R.string.playlistsNavButtonDescription)
+                )
             },
             label = {
                 Text(stringResource(R.string.playlists))

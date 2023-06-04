@@ -28,15 +28,15 @@ fun NavigationGraph(
     val myPlaylistsVM:MyPlaylistsViewModel=viewModel()
     NavHost(
         navController=navController,
-        startDestination=Routes.Search.route
+        startDestination=Routes.MyLibrary.route
     ) {
         composable(Routes.MyLibrary.route){
             MyLibraryScreen(myLibraryVM,navController)
         }
-        composable(Routes.MyPlaylists.route){
+        composable(Routes.Search.route){
             SearchScreen(searchVM,navController)
         }
-        composable(Routes.Search.route){
+        composable(Routes.MyPlaylists.route){
             MyPlaylistsScreen(myPlaylistsVM,navController)
         }
         // TODO: add another screen to show the "My Charts" screen
@@ -60,5 +60,4 @@ fun SearchScreen(viewModel:SearchViewModel,
 fun MyPlaylistsScreen(viewModel:MyPlaylistsViewModel,
                       navigator:NavHostController) {
     MyPlaylistsView(viewModel)
-    return
 }

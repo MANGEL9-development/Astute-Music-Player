@@ -48,10 +48,6 @@ class PlayerScreensActivity:ComponentActivity() {
 fun PlayerScreens() {
     val navController = rememberNavController()
     Scaffold(
-        /* Top bars will be included in each screen
-        topBar = {
-            TopBar()
-        },*/
         bottomBar = {
             BottomBar(navController)
         }

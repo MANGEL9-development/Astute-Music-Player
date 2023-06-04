@@ -15,8 +15,9 @@
     <string name="loading_withDots">Loading…</string>
     <string name="title">Title</string>
     <string name="year">Year</string>
-    <string name="title_activity_player_screens">PlayerScreensActivity</string>
-    <string name="title_home">Home</string>
-    <string name="title_dashboard">Dashboard</string>
-    <string name="title_notifications">Notifications</string>
+    <string name="libraryNavButtonDescription">Tap here to view your library</string>
+    <string name="searchNavButtonDescription">Tap here to search for media</string>
+    <string name="playlistsNavButtonDescription">Tap here to view your playlists</string>
+    <string name="album">Album</string>
+    <string name="albums">Albums</string>
 </resources>

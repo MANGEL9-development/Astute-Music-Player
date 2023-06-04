@@ -13,6 +13,7 @@ import androidx.compose.ui.graphics.Color
 // This palette was generated from https://mycolor.space/?hex=%23091C3F&sub=1 (Spot Palette)
 
 val mainBackgroundColor=Color(0xFF020E24)
-val otherColor=Color(0xFF2F3951) // Find a use for this color (or don't)
+val navigationBackgroundColor=Color(0xFF2F3951) // Find a use for this color (or don't)
 val mainTextColor=Color(0xFFE4F0FF)
+val navigationTextColor=mainTextColor
 val mainAccentColor=Color(0xFF69BAA5) // From https://mycolor.space/?hex=%23081A75&sub=1

@@ -2,6 +2,7 @@ package com.mangel9development.astutemusicplayer.ui.activities.loadingActivity
 
 import android.content.Intent
 import android.os.Bundle
+import android.widget.Toast
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.layout.Arrangement
@@ -23,6 +24,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.mangel9development.astutemusicplayer.R
+import com.mangel9development.astutemusicplayer.model.Library
 import com.mangel9development.astutemusicplayer.ui.activities.playerScreensActivity.PlayerScreensActivity
 import com.mangel9development.astutemusicplayer.ui.theme.AstuteMusicPlayerTheme
 import kotlinx.coroutines.delay
@@ -30,11 +32,11 @@ import kotlinx.coroutines.delay
 // TODO: watch this video to learn how to implement the animation gradient background:
 //  https://www.youtube.com/watch?v=cDnrg75lu3E
 
-class LoadingActivity:ComponentActivity() {
+class LoadingActivity:ComponentActivity(){
     override fun onCreate(savedInstanceState:Bundle?) {
         super.onCreate(savedInstanceState)
-        setContent {
-            AstuteMusicPlayerTheme {
+        setContent{
+            AstuteMusicPlayerTheme{
                 // A surface container using the 'background' color from the theme
                 Surface(
                     modifier=Modifier.fillMaxSize(),
@@ -47,6 +49,8 @@ class LoadingActivity:ComponentActivity() {
                 }
             }
         }
+//        Toast.makeText(this, "Hello toast!", Toast.LENGTH_SHORT).show()
+        Library.loadLibrary()
     }
 }
 

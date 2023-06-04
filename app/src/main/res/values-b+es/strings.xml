@@ -15,4 +15,9 @@
     <string name="loading_withDots">Cargando…</string>
     <string name="title">Título</string>
     <string name="year">Año</string>
+    <string name="libraryNavButtonDescription">Toca aquí para ver tu biblioteca</string>
+    <string name="searchNavButtonDescription">Toca aquí para buscar canciones</string>
+    <string name="playlistsNavButtonDescription">Toca aquí para ver tus listas de reproducción</string>
+    <string name="albums">Álbumes</string>
+    <string name="album">Álbum</string>
 </resources>
