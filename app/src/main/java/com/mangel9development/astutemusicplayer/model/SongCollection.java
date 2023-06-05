@@ -16,7 +16,11 @@ public abstract class SongCollection implements Iterable<Song>, Collection<Song>
     @NonNull
     @Override
     public Song[] toArray(){
-        return (Song[])list.toArray();
+        Song[] array=new Song[list.size()];
+        for(int i=0;i<list.size();i++){
+            array[i]=list.get(i);
+        }
+        return array;
     }
 
     @NonNull

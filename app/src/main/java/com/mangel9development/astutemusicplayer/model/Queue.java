@@ -11,7 +11,9 @@ import java.util.NoSuchElementException;
 
 public class Queue extends SongCollection{
     /**
-     * This is the media that "made" this queue. For example, if the user plays
+     * This is the media that "made" this queue. For example, if the user plays a song from an
+     * album, that album will be the base media. Other songs can still be added to the queue, but
+     * the album will still be the queue's base media.
      */
     private Playable baseMedia;
 

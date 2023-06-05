@@ -9,12 +9,15 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.livedata.observeAsState
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.res.stringResource
-import com.mangel9development.astutemusicplayer.R
-import com.mangel9development.astutemusicplayer.ui.activities.playerScreensActivity.screens.myLibrary.subscreens.AlbumsScreen
-import com.mangel9development.astutemusicplayer.ui.activities.playerScreensActivity.screens.myLibrary.subscreens.ArtistsScreen
-import com.mangel9development.astutemusicplayer.ui.activities.playerScreensActivity.screens.myLibrary.subscreens.GenresScreen
-import com.mangel9development.astutemusicplayer.ui.activities.playerScreensActivity.screens.myLibrary.subscreens.SongsScreen
+import androidx.lifecycle.viewmodel.compose.viewModel
+import com.mangel9development.astutemusicplayer.ui.activities.playerScreensActivity.screens.myLibrary.subscreens.albumsScreen.AlbumsView
+import com.mangel9development.astutemusicplayer.ui.activities.playerScreensActivity.screens.myLibrary.subscreens.albumsScreen.AlbumsViewModel
+import com.mangel9development.astutemusicplayer.ui.activities.playerScreensActivity.screens.myLibrary.subscreens.artistsScreen.ArtistsView
+import com.mangel9development.astutemusicplayer.ui.activities.playerScreensActivity.screens.myLibrary.subscreens.artistsScreen.ArtistsViewModel
+import com.mangel9development.astutemusicplayer.ui.activities.playerScreensActivity.screens.myLibrary.subscreens.genresScreen.GenresView
+import com.mangel9development.astutemusicplayer.ui.activities.playerScreensActivity.screens.myLibrary.subscreens.genresScreen.GenresViewModel
+import com.mangel9development.astutemusicplayer.ui.activities.playerScreensActivity.screens.myLibrary.subscreens.songsScreen.SongsView
+import com.mangel9development.astutemusicplayer.ui.activities.playerScreensActivity.screens.myLibrary.subscreens.songsScreen.SongsViewModel
 import com.mangel9development.astutemusicplayer.ui.theme.navigationBackgroundColor
 import com.mangel9development.astutemusicplayer.ui.theme.navigationTextColor
 
@@ -32,7 +35,7 @@ fun MyLibraryView(viewModel: MyLibraryViewModel){
             .fillMaxSize(),
         verticalArrangement=Arrangement.Top
     ){
-        ScrollableTabRow(
+        ScrollableTabRow( // TODO: find a way for the pages to swipe during the transition
             selectedTabIndex=tabIndex.value!!,
             containerColor=navigationBackgroundColor
         ){
@@ -44,11 +47,19 @@ fun MyLibraryView(viewModel: MyLibraryViewModel){
                 )
             }
         }
+
+        // This might not be the best place to define these. If any issues are caused by this,
+        //  consider moving them inside myLibraryViewModel
+        val songsViewModel:SongsViewModel=viewModel()
+        val artistsViewModel:ArtistsViewModel=viewModel()
+        val albumsViewModel:AlbumsViewModel=viewModel()
+        val genresViewModel:GenresViewModel=viewModel()
+
         when (tabIndex.value) {
-            0 -> SongsScreen(viewModel)
-            1 -> ArtistsScreen(viewModel)
-            2 -> AlbumsScreen(viewModel)
-            3 -> GenresScreen(viewModel)
+            0 -> SongsView(viewModel,songsViewModel)
+            1 -> ArtistsView(viewModel,artistsViewModel)
+            2 -> AlbumsView(viewModel,albumsViewModel)
+            3 -> GenresView(viewModel,genresViewModel)
         }
     }
 }

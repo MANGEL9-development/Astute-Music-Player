@@ -6,6 +6,8 @@ package com.mangel9development.astutemusicplayer.model;
 
 import androidx.annotation.NonNull;
 
+import java.util.Objects;
+
 public class Song /*extends MediaBrowserCompat.MediaItem*/ implements Playable{
     private final String title;
     private final Artist artist;
@@ -67,9 +69,13 @@ public class Song /*extends MediaBrowserCompat.MediaItem*/ implements Playable{
         return genre;
     }
 
-    public boolean equals(Song song){
-        //TODO implement this
-        return super.equals(song);
+    public boolean equals(@NonNull Song song){
+        return (
+            this.title.equals(song.title) &&
+            this.artist.equals(song.artist) &&
+            this.album.equals(song.album)
+        );
+        //TODO: later on, this can be changed to return true if the files are the same
     }
 
     @NonNull
@@ -77,4 +83,10 @@ public class Song /*extends MediaBrowserCompat.MediaItem*/ implements Playable{
     public String toString(){
         return "\""+title+"\" by "+artist;
     }
+
+//    @NonNull
+//    @Override
+//    public String getPlayerName(){
+//        return title;
+//    }
 }

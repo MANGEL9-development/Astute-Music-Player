@@ -6,8 +6,6 @@ import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import com.mangel9development.astutemusicplayer.R
-import com.mangel9development.astutemusicplayer.model.Library
-import com.mangel9development.astutemusicplayer.model.Song
 
 class MyLibraryViewModel(app:Application):AndroidViewModel(app){
     private val _tabIndex: MutableLiveData<Int> = MutableLiveData(0)
@@ -37,10 +35,6 @@ class MyLibraryViewModel(app:Application):AndroidViewModel(app){
 
     fun updateTabIndex(i: Int){
         _tabIndex.value = i
-    }
-
-    fun songs():List<Song>{
-        return ArrayList(Library.songs)
     }
 
     // TODO: this should get all the songs, genres, artists, etc. from Library

@@ -8,7 +8,7 @@ import com.mangel9development.astutemusicplayer.utils.methods;
 import java.util.ArrayList;
 import java.util.Iterator;
 
-public class Library implements Iterable<Song>{ // TODO make this iterable (this will iterate through the ArrayList songs)
+public class Library implements Iterable<Song>{
     public static final Albums albums=new Albums();
     public static final Artists artists=new Artists();
     public static final Genres genres=new Genres();
@@ -38,7 +38,9 @@ public class Library implements Iterable<Song>{ // TODO make this iterable (this
             if(songs.get(start)==song){
                 return song;
             }
-            throw new SongNotInLibraryException(song.getTitle()+" by "+song.getArtist()+" not found in Library",start);
+            throw new SongNotInLibraryException(
+                    song.getTitle()+" by "+song.getArtist()+" not found in Library",start
+            );
         }
 
         int midIndex=methods.safeMid(start,end);
