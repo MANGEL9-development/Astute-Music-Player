@@ -3,11 +3,9 @@ package com.mangel9development.astutemusicplayer.model;
 import com.mangel9development.astutemusicplayer.model.Aggregation.Aggregant;
 
 public class Playlist extends SongCollection implements Aggregant{
-    private String name;
 
     public Playlist(String name){
-        super();
-        this.name=name;
+        super(name);
     }
 
     @Override

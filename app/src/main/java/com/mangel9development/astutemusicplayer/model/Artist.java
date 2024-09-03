@@ -7,12 +7,10 @@ import com.mangel9development.astutemusicplayer.model.Aggregation.Aggregant;
 import java.util.ArrayList;
 
 public class Artist extends SongCollection implements Aggregant{
-    private final String name;
     private final ArrayList<Album> albums;
 
     public Artist(String name){
-        super();
-        this.name=name;
+        super(name);
         albums=new ArrayList<>();
     }
 

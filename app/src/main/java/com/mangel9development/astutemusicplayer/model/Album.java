@@ -3,7 +3,6 @@ package com.mangel9development.astutemusicplayer.model;
 import com.mangel9development.astutemusicplayer.model.Aggregation.Aggregant;
 
 public class Album extends SongCollection implements Aggregant{
-    private final String name;
     private final Artist albumArtist;
     private final int year;
     private static final int DEFAULT_YEAR=-1; // this is assigned to an album that doesn't have a specified year
@@ -11,8 +10,7 @@ public class Album extends SongCollection implements Aggregant{
     public Album(String name, Artist albumArtist){
         // new Album(name,albumArtist,DEFAULT_YEAR);
             // this will cause an error saying that the fields might not have been initialized
-        super();
-        this.name=name;
+        super(name);
         this.albumArtist=albumArtist;
         this.year=DEFAULT_YEAR;
 
@@ -26,8 +24,7 @@ public class Album extends SongCollection implements Aggregant{
      * @param year the year in which the album was released
      */
     public Album(String name, Artist albumArtist, int year){
-        super();
-        this.name=name;
+        super(name);
         this.albumArtist=albumArtist;
         this.year=year;
 

@@ -24,6 +24,8 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.mangel9development.astutemusicplayer.R
 import com.mangel9development.astutemusicplayer.model.Library
+import com.mangel9development.astutemusicplayer.model.System.AstuteApp
+import com.mangel9development.astutemusicplayer.model.System.Settings.Settings
 import com.mangel9development.astutemusicplayer.ui.activities.playerScreensActivity.PlayerScreensActivity
 import com.mangel9development.astutemusicplayer.ui.theme.AstuteMusicPlayerTheme
 import com.mangel9development.astutemusicplayer.ui.theme.mainBackgroundColor
@@ -52,7 +54,7 @@ class LoadingActivity:ComponentActivity(){
             }
         }
 //        Toast.makeText(this, "Hello toast!", Toast.LENGTH_SHORT).show()
-        Library.loadLibrary()
+        AstuteApp.Loader.loadApp()
     }
 }
 

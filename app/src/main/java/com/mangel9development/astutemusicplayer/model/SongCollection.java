@@ -8,10 +8,14 @@ import java.util.Iterator;
 
 public abstract class SongCollection implements Iterable<Song>, Collection<Song>, Playable{
     protected ArrayList<Song> list;
+    protected String name; // this is not final because playlists can change names
 
-    public SongCollection(){
+    public SongCollection(String name){
         list=new ArrayList<>();
+        this.name=name;
     }
+
+    public abstract String getName();
 
     @NonNull
     @Override

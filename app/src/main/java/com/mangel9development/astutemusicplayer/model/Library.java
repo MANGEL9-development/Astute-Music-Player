@@ -33,6 +33,18 @@ public class Library implements Iterable<Song>{
         }
     }
 
+    /**
+     * Searches for song and returns it if it is found. If the song is not found, this method throws
+     * a SongNotInLibraryException. This works using the <a href="https://www.khanacademy.org/computing/computer-science/algorithms/binary-search/a/binary-search">Binary
+     * Search Algorithm</a> which recursively searches a smaller subset of the list before either
+     * finding the song or determines that the song is not in the list. Precondition: the songs are
+     * stored in the list in alphabetical order by title.
+     * @param song the song to be searched for.
+     * @param start the first index of the subset. This can be set to 0
+     * @param end the last index of the subset. This can be set to the index of the last element
+     * @return the song that was found in the library
+     * @throws SongNotInLibraryException if the song was not found in the library
+     */
     private static Song binarySearch(Song song,int start,int end) throws SongNotInLibraryException{
         if(start==end){
             if(songs.get(start)==song){
@@ -187,7 +199,8 @@ public class Library implements Iterable<Song>{
          */
         LOADED,
         /**
-         * This means that the library is refreshing and maybe adding/removing media.
+         * This means that the library is refreshing and maybe adding/removing media. The next state
+         * after this is LOADED
          */
         RELOADING
     }

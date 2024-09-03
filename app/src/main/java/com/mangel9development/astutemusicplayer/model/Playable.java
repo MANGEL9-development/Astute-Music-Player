@@ -7,10 +7,10 @@ import androidx.annotation.NonNull;
  * {@link Song}, {@link Playlist}, {@link Album}, etc.
  */
 public interface Playable{
-    /**
-     * This is the name of this Playable. This name will be displayed on the player UI.
-     * @return the name of this Playable
-     */
+//    /**
+//     * This is the name of this Playable. This name will be displayed on the player UI.
+//     * @return the name of this Playable
+//     */
 //    @NonNull
 //    public String getPlayerName(); // this might not actually be needed because
 }

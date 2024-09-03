@@ -42,7 +42,7 @@ public class Queue extends SongCollection{
      * Constructs an empty Queue
      */
     public Queue(){
-        super();
+        super(null); // maybe find another way to name queues
         alreadyPlayed=new LinkedList<>();
         currentlyPlayingSong=null;
         upNext=new LinkedList<>();
@@ -145,6 +145,10 @@ public class Queue extends SongCollection{
 
     public Song getCurrentlyPlayingSong(){
         return currentlyPlayingSong;
+    }
+
+    public String getName(){
+        return null; // maybe find another way to name queues
     }
 
     @NonNull

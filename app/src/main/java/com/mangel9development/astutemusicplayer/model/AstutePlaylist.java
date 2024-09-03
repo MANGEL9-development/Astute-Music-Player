@@ -11,6 +11,10 @@ public class AstutePlaylist extends Playlist{
     public final LinkedList<Rule> rules; /* in the future, this can be changed to be a set of rules
         instead of filters. Rules can include things like "add from source", "sort", etc.*/
 
+    /**
+     * Constructs an empty Astute playlist
+     * @param name the name of this AstutePlaylist
+     */
     public AstutePlaylist(String name){
         super(name);
         rules=new LinkedList<>();
@@ -40,6 +44,11 @@ public class AstutePlaylist extends Playlist{
         }
     }
 
+    /**
+     * A rule defines an action that takes place in the making/updating of an Astute playlist. A
+     * rule can be anything from a source from which to get songs, or a filter that removes some
+     * of the songs from the playlist.
+     */
     private interface Rule{
         void affect(SongCollection songs);
     }
